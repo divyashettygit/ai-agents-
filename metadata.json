@@ -1,0 +1,11 @@
+{
+  "name": "AgriSathi - AI Multi-Agent Farming Assistant",
+  "description": "An AI-powered multi-agent farming assistant providing leaf disease diagnosis, personalized fertilizer advice, real-time weather & market intelligence, voice interaction, and advisory video reels.",
+  "requestFramePermissions": [
+    "MICROPHONE",
+    "CAMERA"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
