@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MANDI_RECORDS } from '../data/mockData';
 import { MandiRecord, Language } from '../types';
 import { I18N } from '../data/translations';
-import { Search, Download, TrendingUp, TrendingDown, RefreshCw, MapPin } from 'lucide-react';
+import { Search, TrendingUp, TrendingDown, RefreshCw, MapPin } from 'lucide-react';
 
 interface MarketViewProps {
   language: Language;
@@ -28,33 +28,6 @@ export const MarketView: React.FC<MarketViewProps> = ({ language, onRewardCoins 
     return a.crop.localeCompare(b.crop);
   });
 
-  const exportCSV = () => {
-    const headers = ['Crop', 'Group', 'Market / Mandi', 'District', 'Min (INR/q)', 'Max (INR/q)', 'Average (INR/q)', 'Trend'];
-    const rows = filteredRecords.map((r) => [
-      r.crop,
-      r.group,
-      r.mandi,
-      r.district,
-      r.min,
-      r.max,
-      r.avg,
-      r.trend,
-    ]);
-
-    const csvContent = [headers.join(','), ...rows.map((e) => e.join(','))].join('\n');
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.setAttribute('href', url);
-    link.setAttribute('download', `Mandi_Market_Prices_${new Date().toISOString().split('T')[0]}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-
-    onRewardCoins(30, language === 'te' ? 'మార్కెట్ ధరల CSV డేటాను డౌన్‌లోడ్ చేసారు' : 'Exported Mandi Market CSV dataset');
-  };
-
   return (
     <div className="space-y-6">
       {/* Intro */}
@@ -68,14 +41,6 @@ export const MarketView: React.FC<MarketViewProps> = ({ language, onRewardCoins 
           </h1>
           <p className="text-xs text-slate-500">{t.mandiSubtitle}</p>
         </div>
-
-        <button
-          onClick={exportCSV}
-          className="text-xs font-bold bg-[#1b6243] hover:bg-[#144b33] text-white px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 transition-colors shadow-xs"
-        >
-          <Download className="w-3.5 h-3.5" />
-          {t.exportCsvBtn}
-        </button>
       </div>
 
       {/* Filter & Search Bar */}

@@ -293,7 +293,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                       </h4>
                       <div className="flex items-center justify-between text-[10px] text-slate-500 mt-1.5">
                         <span>{vid.duration}</span>
-                        <span className="text-amber-600 font-bold">+50 🪙</span>
                       </div>
                     </div>
                   </div>

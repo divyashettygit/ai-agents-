@@ -107,11 +107,8 @@ Safety Disclaimer: This schedule is formulated based on State Agricultural Unive
               <Sprout className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900">
                 {t.fertilizerTitle}
-                <span className="text-[10px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
-                  Precision NPK
-                </span>
               </h2>
               <p className="text-xs text-slate-500">{t.fertilizerSub}</p>
             </div>

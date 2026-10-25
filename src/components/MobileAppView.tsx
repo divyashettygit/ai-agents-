@@ -316,7 +316,6 @@ export const MobileAppView: React.FC<MobileAppViewProps> = ({
 
                         <div className="p-2 text-[10px] flex items-center justify-between text-slate-500 font-medium">
                           <span>{vid.duration}</span>
-                          <span className="text-amber-600 font-black">+50 🪙</span>
                         </div>
                       </div>
                     );
