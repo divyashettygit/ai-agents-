@@ -32,7 +32,7 @@ if (process.env.GEMINI_API_KEY) {
 }
 
 // 1. Multi-Agent AI Chat endpoint
-app.post('/api/gemini/chat', async (req: Request, res: Response) => {
+app.post(['/api/ai/chat', '/api/gemini/chat'], async (req: Request, res: Response) => {
   const { message, agentId, farmerProfile, language = 'en' } = req.body;
 
   if (!message || typeof message !== 'string') {
@@ -82,9 +82,9 @@ Format your response in a well-structured, easy-to-read style for a farmer:
       });
 
       const replyText = response.text || '';
-      return res.json({ reply: replyText, source: 'gemini-live' });
+      return res.json({ reply: replyText, source: 'ai-live' });
     } catch (err) {
-      console.error('Gemini chat error, falling back to knowledge base:', err);
+      console.error('AI chat error, falling back to knowledge base:', err);
     }
   }
 
@@ -94,7 +94,7 @@ Format your response in a well-structured, easy-to-read style for a farmer:
 });
 
 // 2. Crop Doctor - Multimodal Leaf Disease Detection
-app.post('/api/gemini/crop-doctor', async (req: Request, res: Response) => {
+app.post(['/api/ai/crop-doctor', '/api/gemini/crop-doctor'], async (req: Request, res: Response) => {
   const { imageBase64, mimeType = 'image/jpeg', crop = 'Paddy', observedSymptoms, language = 'en' } = req.body;
 
   const langNames: Record<string, string> = {
@@ -148,9 +148,9 @@ Respond in strict JSON format matching this schema:
       });
 
       const parsed = JSON.parse(response.text || '{}');
-      return res.json({ result: parsed, source: 'gemini-vision' });
+      return res.json({ result: parsed, source: 'ai-vision' });
     } catch (err) {
-      console.error('Gemini vision diagnosis error, using agronomy model fallback:', err);
+      console.error('Vision diagnosis error, using agronomy model fallback:', err);
     }
   }
 

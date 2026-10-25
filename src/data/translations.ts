@@ -254,7 +254,7 @@ export const I18N: Record<Language, AppTranslation> = {
     check4Desc: 'Check current rates before harvesting.',
 
     cropDoctorTitle: 'Crop Doctor AI',
-    cropDoctorSubtitle: 'PlantVillage Deep Learning + Gemini Multimodal Analysis',
+    cropDoctorSubtitle: 'PlantVillage Deep Learning + Multimodal Vision Analysis',
     targetCrop: 'Target Crop',
     observedSymptoms: 'Observed Symptoms',
     symptomsPlaceholder: 'e.g. Brown circular spots, yellow edges, wilting...',
@@ -366,14 +366,14 @@ export const I18N: Record<Language, AppTranslation> = {
     showingRecords: 'Showing records from monitored APMC markets',
 
     agentTitle: 'AgriSathi AI Specialist Agents',
-    agentSubtitle: 'Powered by Google Gemini 3.8 Flash + Deep Agronomy Knowledge',
+    agentSubtitle: '',
     clearChat: 'Clear Conversation',
     chatPlaceholder: 'Ask about crop diseases, fertilizers, weather, or market rates...',
     send: 'Send',
     suggestionsLabel: 'Suggestions:',
     orchestrationLog: 'Multi-Agent Orchestration Log',
     orchestrationSub: 'Real-time routing history across specialist agents',
-    academicAlignment: 'Academic Research Alignment (BIET)',
+    academicAlignment: 'Multi-Agent System Alignment',
 
     shortsTitle: 'Farming Shorts & Reels',
     watchReel: 'Watch Advisory Reel',
@@ -440,7 +440,7 @@ export const I18N: Record<Language, AppTranslation> = {
     check4Desc: 'పంట కోతకు ముందు సమీప మార్కెట్ ధరలను తనిఖీ చేయండి.',
 
     cropDoctorTitle: 'క్రాప్ డాక్టర్ AI (వ్యాధి నిర్ధారణ)',
-    cropDoctorSubtitle: 'ప్లాంట్ విలేజ్ డీప్ లెర్నింగ్ + జెమిని మల్టీమోడల్ విశ్లేషణ',
+    cropDoctorSubtitle: 'ప్లాంట్ విలేజ్ డీప్ లెర్నింగ్ + మల్టీమోడల్ విజన్ విశ్లేషణ',
     targetCrop: 'పంటను ఎంచుకోండి',
     observedSymptoms: 'కనిపిస్తున్న లక్షణాలు',
     symptomsPlaceholder: 'ఉదా: గుండ్రటి గోధుమ మచ్చలు, పసుపు అంచులు, ఆకులు ముడుచుకుపోవడం...',
@@ -552,14 +552,14 @@ export const I18N: Record<Language, AppTranslation> = {
     showingRecords: 'పర్యవేక్షించబడుతున్న వ్యవసాయ మార్కెట్ల రికార్డులు',
 
     agentTitle: 'అగ్రిసాథి AI స్పెషలిస్ట్ ఏజెంట్లు',
-    agentSubtitle: 'గూగుల్ జెమిని 3.8 ఫ్లాష్ + సమగ్ర వ్యవసాయ విజ్ఞానంతో పనిచేస్తుంది',
+    agentSubtitle: '',
     clearChat: 'చాట్ క్లియర్ చేయండి',
     chatPlaceholder: 'పంట తెగుళ్లు, ఎరువులు, వాతావరణం లేదా మార్కెట్ ధరల గురించి అడగండి...',
     send: 'పంపండి',
     suggestionsLabel: 'సూచనలు:',
     orchestrationLog: 'మల్టీ-ఏజెంట్ పనితీరు లాగ్',
     orchestrationSub: 'ప్రశ్నను ఏ ఏజెంట్ పరిష్కరిస్తుందో లైవ్ ట్రాకింగ్',
-    academicAlignment: 'అకడమిక్ ప్రాజెక్ట్ లక్ష్యాలు (BIET కళాశాల)',
+    academicAlignment: 'మల్టీ-ఏజెంట్ సిస్టమ్ ప్రాజెక్ట్ లక్ష్యాలు',
 
     shortsTitle: 'వ్యవసాయ రీల్స్ & షార్ట్స్ (Shorts)',
     watchReel: 'వీడియో చూడండి',
@@ -626,7 +626,7 @@ export const I18N: Record<Language, AppTranslation> = {
     check4Desc: 'फसल कटाई से पहले वर्तमान मंडी भाव देखें।',
 
     cropDoctorTitle: 'क्रॉप डॉक्टर एआई (रोग निदान)',
-    cropDoctorSubtitle: 'प्लांटविलेज डीप लर्निंग + जेमिनी मल्टीमॉडल विश्लेषण',
+    cropDoctorSubtitle: 'प्लांटविलेज डीप लर्निंग + मल्टीमॉडल विजन विश्लेषण',
     targetCrop: 'फसल चुनें',
     observedSymptoms: 'दिख रहे लक्षण',
     symptomsPlaceholder: 'उदा. भूरे गोल छल्लेदार धब्बे, पीला घेरा, मुरझाना...',
@@ -738,14 +738,14 @@ export const I18N: Record<Language, AppTranslation> = {
     showingRecords: 'निगरानी की जा रही मंडियों के रिकॉर्ड',
 
     agentTitle: 'एग्रीसाथी एआई विशेषज्ञ एजेंट',
-    agentSubtitle: 'गूगल जेमिनी 3.8 फ्लैश + कृषि ज्ञान कोष से संचालित',
+    agentSubtitle: '',
     clearChat: 'बातचीत साफ़ करें',
     chatPlaceholder: 'फसल रोग, खाद, मौसम या मंडी भाव के बारे में पूछें...',
     send: 'भेजें',
     suggestionsLabel: 'सुझाव:',
     orchestrationLog: 'मल्टी-एजेंट गतिविधि लॉग',
     orchestrationSub: 'सवाल किस विशेषज्ञ एजेंट ने हल किया',
-    academicAlignment: 'अकादमिक रिसर्च अलाइनमेंट (BIET)',
+    academicAlignment: 'मल्टी-एजेंट सिस्टम प्रोजेक्ट लक्ष्य',
 
     shortsTitle: 'कृषि वीडियो रील्स एवं शॉर्ट्स',
     watchReel: 'वीडियो देखें',
@@ -812,7 +812,7 @@ export const I18N: Record<Language, AppTranslation> = {
     check4Desc: 'ಕೊಯ್ಲಿಗೆ ಮುನ್ನ ಮಾರುಕಟ್ಟೆ ಬೆಲೆಗಳನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.',
 
     cropDoctorTitle: 'ಕ್ರಾಪ್ ಡಾಕ್ಟರ್ AI (ರೋಗ ಪರೀಕ್ಷೆ)',
-    cropDoctorSubtitle: 'ಪ್ಲಾಂಟ್ ವಿಲೇಜ್ ಡೀಪ್ ಲರ್ನಿಂಗ್ + ಜೆಮಿನಿ ಮಲ್ಟಿಮೋಡಲ್ ವಿಶ್ಲೇಷಣೆ',
+    cropDoctorSubtitle: 'ಪ್ಲಾಂಟ್ ವಿಲೇಜ್ ಡೀಪ್ ಲರ್ನಿಂಗ್ + ಮಲ್ಟಿಮೋಡಲ್ ವಿಷನ್ ವಿಶ್ಲೇಷಣೆ',
     targetCrop: 'ಬೆಳೆ ಆಯ್ಕೆಮಾಡಿ',
     observedSymptoms: 'ಕಂಡುಬಂದ ಲಕ್ಷಣಗಳು',
     symptomsPlaceholder: 'ಉದಾ: ಕಂದು ಬಣ್ಣದ ವೃತ್ತಾಕಾರದ ಕಲೆಗಳು, ಎಲೆ ಹಳದಿಯಾಗುವುದು...',
@@ -924,14 +924,14 @@ export const I18N: Record<Language, AppTranslation> = {
     showingRecords: 'ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲಾದ APMC ಮಾರುಕಟ್ಟೆಗಳ ದಾಖಲೆಗಳು',
 
     agentTitle: 'ಅಗ್ರಿಸಾಥಿ AI ತಜ್ಞ ಸಹಾಯಕರು',
-    agentSubtitle: 'ಗೂಗಲ್ ಜೆಮಿನಿ 3.8 ಫ್ಲ್ಯಾಶ್ + ಕೃಷಿ ಜ್ಞಾನದಿಂದ ಚಾಲಿತವಾಗಿದೆ',
+    agentSubtitle: '',
     clearChat: 'ಸಂಭಾಷಣೆ ಅಳಿಸಿ',
     chatPlaceholder: 'ಬೆಳೆ ರೋಗಗಳು, ಗೊಬ್ಬರ, ಹವಾಮಾನ ಅಥವಾ ಮಾರುಕಟ್ಟೆ ದರಗಳ ಬಗ್ಗೆ ಕೇಳಿ...',
     send: 'ಕಳುಹಿಸಿ',
     suggestionsLabel: 'ಸಲಹೆಗಳು:',
     orchestrationLog: 'ಮಲ್ಟಿ-ಏಜೆಂಟ್ ಲಾಗ್',
     orchestrationSub: 'ಯಾವ ತಜ್ಞ ಏಜೆಂಟ್ ಪ್ರಶ್ನೆಗೆ ಉತ್ತರಿಸಿದ್ದಾರೆ',
-    academicAlignment: 'ಅಕಾಡೆಮಿಕ್ ರಿಸರ್ಚ್ ವಿವರಗಳು (BIET)',
+    academicAlignment: 'ಮಲ್ಟಿ-ಏಜೆಂಟ್ ಸಿಸ್ಟಮ್ ಪ್ರಾಜೆಕ್ಟ್ ವಿವರಗಳು',
 
     shortsTitle: 'ಕೃಷಿ ವೀಡಿಯೊ ರೀಲ್ಸ್ ಮತ್ತು ಶಾರ್ಟ್ಸ್',
     watchReel: 'ವೀಡಿಯೊ ವೀಕ್ಷಿಸಿ',

@@ -18,7 +18,7 @@
 - Downloadable demo session report
 
 ## Important limitations
-This is an interactive front-end prototype. It does NOT connect to a real TensorFlow disease classifier, Flask backend, MongoDB, Gemini API, live weather service, live Agmarknet feed, or a true multi-agent orchestration system. All weather and market values are sample data. Chat replies are predefined. Never use the demo to diagnose or treat a real crop or to make selling decisions.
+This is an interactive front-end prototype. It does NOT connect to a real TensorFlow disease classifier, Flask backend, MongoDB, Autonomous AI API, live weather service, live Agmarknet feed, or a true multi-agent orchestration system. All weather and market values are sample data. Chat replies are predefined. Never use the demo to diagnose or treat a real crop or to make selling decisions.
 
 ## Project proposal stack for future implementation
-React.js, Python/Flask, MongoDB, TensorFlow/CNN, OpenCV, Google Gemini API, PlantVillage dataset and verified market/weather data sources.
+React.js, Python/Flask, MongoDB, TensorFlow/CNN, OpenCV, Google Autonomous AI API, PlantVillage dataset and verified market/weather data sources.

@@ -56,7 +56,7 @@ export const CropDoctorModal: React.FC<CropDoctorModalProps> = ({
     setResult(null);
 
     try {
-      const res = await fetch('/api/gemini/crop-doctor', {
+      const res = await fetch('/api/ai/crop-doctor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

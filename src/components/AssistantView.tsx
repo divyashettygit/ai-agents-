@@ -11,7 +11,6 @@ import {
   Sparkles,
   Bot,
   User,
-  ShieldCheck,
   AlertCircle,
   Radio,
   HelpCircle,
@@ -287,7 +286,7 @@ How can I assist your field operations today? You can type or click the micropho
     ]);
 
     try {
-      const res = await fetch('/api/gemini/chat', {
+      const res = await fetch('/api/ai/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -369,7 +368,6 @@ How can I assist your field operations today? You can type or click the micropho
           <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1">
             {t.agentTitle}
           </h1>
-          <p className="text-xs text-slate-500">{t.agentSubtitle}</p>
         </div>
 
         <button
@@ -514,8 +512,8 @@ How can I assist your field operations today? You can type or click the micropho
                 <div className="w-4 h-4 border-2 border-emerald-600/30 border-t-emerald-600 rounded-full animate-spin" />
                 <span>
                   {language === 'te'
-                    ? 'జెమిని AI & వ్యవసాయ నిపుణుల సలహాను సిద్ధం చేస్తున్నాము...'
-                    : 'Consulting Gemini & Agronomy knowledge base...'}
+                    ? 'AI & వ్యవసాయ నిపుణుల సలహాను సిద్ధం చేస్తున్నాము...'
+                    : 'Consulting AI & Agronomy knowledge base...'}
                 </span>
               </div>
             )}
@@ -736,19 +734,6 @@ How can I assist your field operations today? You can type or click the micropho
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Academic Architecture Note */}
-          <div className="bg-emerald-50/70 border border-emerald-200 rounded-3xl p-4 text-xs text-emerald-950 space-y-1.5">
-            <b className="flex items-center gap-1.5 font-bold text-emerald-900">
-              <ShieldCheck className="w-4 h-4 text-emerald-700" />
-              {t.academicAlignment}
-            </b>
-            <p className="text-[11px] text-emerald-800 leading-relaxed">
-              {language === 'te'
-                ? 'భారత్ ఇన్స్టిట్యూట్ ఆఫ్ ఇంజనీరింగ్ అండ్ టెక్నాలజీ (BIET) B.Tech ప్రాజెక్ట్ పరిశోధనా లక్ష్యం 1 (మల్టీ-ఏజెంట్ AI ఆర్కెస్ట్రేషన్) & లక్ష్యం 2 (జెమినీ మోడల్ సమన్వయం) ఆధారంగా రూపొందించబడింది.'
-                : 'Fulfills Objective 1 (Multi-Agent framework with coordinator routing) & Objective 2 (Generative AI decision support) from Bharat Institute of Engineering and Technology curriculum.'}
-            </p>
           </div>
         </div>
       </div>

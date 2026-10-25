@@ -15,6 +15,7 @@ import { ProductVerificationModal } from './components/ProductVerificationModal'
 import { ProductsCatalogModal } from './components/ProductsCatalogModal';
 import { VideoPlayerModal } from './components/VideoPlayerModal';
 import { ShareGuideModal } from './components/ShareGuideModal';
+import { LoginView } from './components/LoginView';
 import { Toast } from './components/Toast';
 import {
   LayoutDashboard,
@@ -32,14 +33,24 @@ import {
 } from 'lucide-react';
 
 export default function App() {
-  const [farmer, setFarmer] = useState<FarmerProfile>({
-    name: 'Ramesh Reddy',
-    location: 'Hyderabad, Telangana',
-    crop: 'Paddy',
-    area: 2,
-    phone: '+91 98480 12345',
-    language: 'en',
-    agriCoins: 2000,
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return localStorage.getItem('agrisathi_authenticated') === 'true';
+  });
+
+  const [farmer, setFarmer] = useState<FarmerProfile>(() => {
+    try {
+      const saved = localStorage.getItem('agrisathi_farmer_profile');
+      if (saved) return JSON.parse(saved);
+    } catch (e) {}
+    return {
+      name: 'Ramesh Reddy',
+      location: 'Hyderabad, Telangana',
+      crop: 'Paddy',
+      area: 2,
+      phone: '+91 98480 12345',
+      language: 'en',
+      agriCoins: 2000,
+    };
   });
 
   const t = I18N[farmer.language] || I18N.en;
@@ -56,6 +67,32 @@ export default function App() {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState<VideoReel | null>(null);
   const [isShareGuideOpen, setIsShareGuideOpen] = useState(false);
+
+  const handleLogin = (profile: FarmerProfile) => {
+    setFarmer(profile);
+    setIsAuthenticated(true);
+    try {
+      localStorage.setItem('agrisathi_authenticated', 'true');
+      localStorage.setItem('agrisathi_farmer_profile', JSON.stringify(profile));
+    } catch (e) {}
+    const welcomeMsg =
+      profile.language === 'te'
+        ? `స్వాగతం, ${profile.name} గారు! అగ్రిసార్థి పోర్టల్ ప్రారంభమైంది.`
+        : `Welcome, ${profile.name}! AgriSathi portal loaded.`;
+    setToastMessage(welcomeMsg);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    try {
+      localStorage.removeItem('agrisathi_authenticated');
+    } catch (e) {}
+    setToastMessage(
+      farmer.language === 'te'
+        ? 'మీరు విజయవంతంగా లాగ్ అవుట్ అయ్యారు.'
+        : 'Logged out successfully.'
+    );
+  };
 
   const rewardCoins = (amount: number, reason: string) => {
     setFarmer((prev) => ({
@@ -96,6 +133,22 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // If not authenticated, render LoginView first!
+  if (!isAuthenticated) {
+    return (
+      <>
+        <LoginView
+          onLogin={handleLogin}
+          language={farmer.language}
+          onLanguageChange={(lang: Language) => {
+            setFarmer((prev) => ({ ...prev, language: lang }));
+          }}
+        />
+        <Toast message={toastMessage} onClose={() => setToastMessage(null)} />
+      </>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#f6f9f5] text-[#1c2e24] flex flex-col font-sans">
       {/* Header bar */}
@@ -111,6 +164,7 @@ export default function App() {
           setToastMessage(`Language changed to ${lang.toUpperCase()}`);
         }}
         onOpenShareGuide={() => setIsShareGuideOpen(true)}
+        onLogout={handleLogout}
       />
 
       {/* Main Body */}
@@ -238,7 +292,7 @@ export default function App() {
                     <span>{t.aiAgents}</span>
                   </div>
                   <span className="text-[9px] font-extrabold bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded">
-                    GEMINI
+                    AGENT
                   </span>
                 </button>
 
@@ -343,12 +397,6 @@ export default function App() {
         </div>
       )}
 
-      {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white py-4 px-6 text-center text-xs text-slate-500">
-        <p>
-          AgriSathi · Academic Prototype · Bharat Institute of Engineering and Technology · Multi-Agent AI System
-        </p>
-      </footer>
 
       {/* Modals */}
       <CropDoctorModal
