@@ -79,11 +79,7 @@ export const MobileAppView: React.FC<MobileAppViewProps> = ({
               </span>
             </div>
 
-            {/* Reward Points Badge - As shown in screenshot: 🪙 2000 */}
-            <div className="flex items-center gap-1 bg-amber-400 text-amber-950 px-2.5 py-1 rounded-full text-xs font-black shadow-sm">
-              <span>🪙</span>
-              <span className="tabular-nums">{farmer.agriCoins}</span>
-            </div>
+
           </div>
 
           {/* Weather Card - Replicating screenshot */}

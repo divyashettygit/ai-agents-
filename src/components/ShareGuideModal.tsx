@@ -169,7 +169,7 @@ export const ShareGuideModal: React.FC<ShareGuideModalProps> = ({
         {/* Footer */}
         <div className="bg-slate-50 px-6 py-4 border-t border-slate-200 flex items-center justify-between">
           <span className="text-xs text-slate-500 font-medium">
-            AgriSathi · AI Multi-Agent Farming Platform
+            AgriSathi
           </span>
           <button
             onClick={onClose}

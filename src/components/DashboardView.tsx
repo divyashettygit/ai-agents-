@@ -86,9 +86,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             {farmer.crop} · {farmer.area} {language === 'te' ? 'ఎకరాలు' : 'Acres'}
           </b>
           <span className="text-emerald-100 block">{farmer.location}</span>
-          <div className="pt-1 flex items-center gap-1.5 text-amber-300 font-bold text-[11px]">
-            <span>🪙 {farmer.agriCoins} {t.agriCoins}</span>
-          </div>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FarmerProfile, Language } from '../types';
-import { User, Award, FileText, CheckCircle2, ShieldCheck, Download, Layers } from 'lucide-react';
+import { User, Award, FileText, CheckCircle2, ShieldCheck, Download } from 'lucide-react';
 
 interface FarmProfileViewProps {
   farmer: FarmerProfile;
@@ -12,8 +12,8 @@ interface FarmProfileViewProps {
 const PROFILE_I18N = {
   en: {
     badge: 'Farmer Profile & Settings',
-    title: 'My Farm Profile & Project Architecture',
-    sub: 'Manage your personal farm parameters and inspect project technical specifications',
+    title: 'My Farm Profile',
+    sub: 'Manage your personal farm parameters and settings',
     downloadReport: 'Download Academic Session Report',
     specsTitle: 'Farmer & Plot Specifications',
     coins: 'AgriCoins',
@@ -29,8 +29,8 @@ const PROFILE_I18N = {
   },
   te: {
     badge: 'రైతు ప్రొఫైల్ & సెట్టింగ్‌లు',
-    title: 'నా వ్యవసాయ ప్రొఫైల్ & ప్రాజెక్ట్ వివరాలు',
-    sub: 'మీ వ్యవసాయ వివరాలను నిర్వహించండి మరియు ప్రాజెక్ట్ వివరాలను తనిఖీ చేయండి',
+    title: 'నా వ్యవసాయ ప్రొఫైల్',
+    sub: 'మీ వ్యవసాయ వివరాలను మరియు సెట్టింగ్‌లను నిర్వహించండి',
     downloadReport: 'అకడమిక్ రిపోర్ట్ డౌన్‌లోడ్',
     specsTitle: 'రైతు మరియు పొలం వివరాలు',
     coins: 'అగ్రి కాయిన్స్',
@@ -46,8 +46,8 @@ const PROFILE_I18N = {
   },
   hi: {
     badge: 'किसान प्रोफाइल और सेटिंग्स',
-    title: 'मेरी कृषि प्रोफाइल और प्रोजेक्ट विवरण',
-    sub: 'अपने कृषि मापदंडों का प्रबंधन करें और तकनीकी विनिर्देश देखें',
+    title: 'मेरी कृषि प्रोफाइल',
+    sub: 'अपने कृषि मापदंडों और सेटिंग्स का प्रबंधन करें',
     downloadReport: 'अकादमिक रिपोर्ट डाउनलोड करें',
     specsTitle: 'किसान और खेत विनिर्देश',
     coins: 'एग्री-कॉइन',
@@ -63,8 +63,8 @@ const PROFILE_I18N = {
   },
   kn: {
     badge: 'ರೈತ ವಿವರ ಮತ್ತು ಸೆಟ್ಟಿಂಗ್‌ಗಳು',
-    title: 'ನನ್ನ ಕೃಷಿ ಪ್ರೊಫೈಲ್ ಮತ್ತು ಪ್ರಾಜೆಕ್ಟ್ ವಿವರ',
-    sub: 'ನಿಮ್ಮ ಕೃಷಿ ವಿವರಗಳನ್ನು ನಿರ್ವಹಿಸಿ ಮತ್ತು ತಾಂತ್ರಿಕ ಅಂಶಗಳನ್ನು ಪರಿಶೀಲಿಸಿ',
+    title: 'ನನ್ನ ಕೃಷಿ ಪ್ರೊಫೈಲ್',
+    sub: 'ನಿಮ್ಮ ಕೃಷಿ ವಿವರಗಳನ್ನು ಮತ್ತು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ',
     downloadReport: 'ಅಕಾಡೆಮಿಕ್ ವರದಿ ಡೌನ್‌ಲೋಡ್',
     specsTitle: 'ರೈತ ಮತ್ತು ಜಮೀನಿನ ವಿವರಗಳು',
     coins: 'ಅಗ್ರಿ ಕಾಯಿನ್ಸ್',
@@ -121,7 +121,6 @@ Date: ${new Date().toLocaleDateString('en-IN')}
 - Farm Location: ${farmer.location}
 - Primary Crop: ${farmer.crop}
 - Holding Size: ${farmer.area} Acres
-- Reward Balance: ${farmer.agriCoins} AgriCoins
 - Interface Language: ${language}
 
 2. MULTI-AGENT ARCHITECTURE STATUS
@@ -196,10 +195,6 @@ Date: ${new Date().toLocaleDateString('en-IN')}
               <User className="w-4 h-4 text-emerald-700" />
               {t.specsTitle}
             </h3>
-            <div className="flex items-center gap-1 bg-amber-100 text-amber-900 px-2.5 py-0.5 rounded-full text-xs font-bold">
-              <span>🪙</span>
-              <span>{farmer.agriCoins} {t.coins}</span>
-            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-3.5">
@@ -358,81 +353,8 @@ Date: ${new Date().toLocaleDateString('en-IN')}
           </div>
         </div>
       </div>
-
-      {/* System Architecture Diagram Section */}
-      <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xs space-y-5">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-              <Layers className="w-5 h-5" />
-            </div>
-            <div>
-              <h2 className="text-base font-extrabold text-slate-900">
-                {language === 'te'
-                  ? 'సిస్టమ్ ఆర్కిటెక్చర్ & బ్లాక్ రేఖాచిత్రం (Project Architecture Diagram)'
-                  : 'System Architecture & Block Diagram (B.Tech Stage-1)'}
-              </h2>
-              <p className="text-xs text-slate-500">
-                {language === 'te'
-                  ? 'మల్టీ-ఏజెంట్ సిస్టమ్, డేటా సోర్సెస్ మరియు అవుట్‌పుట్ ఫ్లో రేఖాచిత్రం'
-                  : 'Complete architectural block diagram for project documentation and report submission'}
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="/agrisathi-architecture-diagram.jpg"
-            download="AgriSathi_Architecture_Diagram.jpg"
-            className="inline-flex items-center gap-2 bg-[#1b6243] hover:bg-[#144b33] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors shadow-xs shrink-0"
-            title="Download high-resolution image for your B.Tech report"
-          >
-            <Download className="w-4 h-4" />
-            <span>{language === 'te' ? 'ఆర్కిటెక్చర్ ఇమేజ్ డౌన్‌లోడ్' : 'Download Diagram Image'}</span>
-          </a>
-        </div>
-
-        {/* High Resolution Architecture Image Display */}
-        <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 relative group p-2">
-          <img
-            src="/agrisathi-architecture-diagram.jpg"
-            alt="AgriSathi AI Multi-Agent Farming Assistant System Architecture Diagram"
-            className="w-full h-auto object-contain max-h-[780px] mx-auto rounded-xl shadow-xs"
-          />
-        </div>
-
-        {/* Description & Block Breakdown for academic report */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-          <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-1.5">
-            <b className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-600" />
-              1. Input & Data Sources
-            </b>
-            <p className="text-[11px] text-slate-600 leading-relaxed">
-              Farmer details, crop image upload for disease detection, voice/text questions in Indian languages (Telugu, Hindi, Kannada, English) integrated with real-time Weather APIs, soil data, and Agmarknet mandi rates.
-            </p>
-          </div>
-
-          <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-1.5">
-            <b className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-blue-600" />
-              2. Multi-Agent Generative AI
-            </b>
-            <p className="text-[11px] text-slate-600 leading-relaxed">
-              Agent Orchestrator coordinates 7 specialized agents: Crop Recommendation, Weather Forecast, Crop Disease Detection, Irrigation Management, Fertilizer Recommendation, Market Price Analysis, and AI Chat Assistant.
-            </p>
-          </div>
-
-          <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-1.5">
-            <b className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-amber-600" />
-              3. Outputs & SDG Outcomes
-            </b>
-            <p className="text-[11px] text-slate-600 leading-relaxed">
-              Personalized treatment plans, stage-wise NPK bag doses, spray windows, and multi-language voice responses supporting SDG 2 (Zero Hunger) and SDG 12 (Sustainable Farming).
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
+
+

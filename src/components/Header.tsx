@@ -176,15 +176,6 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="hidden sm:inline">{language === 'te' ? 'ఫోన్ / PC గైడ్' : 'Phone / PC Guide'}</span>
         </button>
 
-        {/* AgriCoins Balance */}
-        <div
-          onClick={() => onNavigate('farm')}
-          className="cursor-pointer flex items-center gap-1.5 bg-amber-50 text-amber-900 border border-amber-300 px-2.5 py-1.5 rounded-xl text-xs font-black shadow-xs hover:bg-amber-100 transition-colors"
-          title="Your earned AgriCoins reward balance"
-        >
-          <span>🪙</span>
-          <span className="tabular-nums">{farmer.agriCoins}</span>
-        </div>
 
         {/* Farmer Avatar */}
         <button

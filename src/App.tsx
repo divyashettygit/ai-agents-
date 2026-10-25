@@ -94,22 +94,14 @@ export default function App() {
     );
   };
 
-  const rewardCoins = (amount: number, reason: string) => {
-    setFarmer((prev) => ({
-      ...prev,
-      agriCoins: prev.agriCoins + amount,
-    }));
-    setToastMessage(`+${amount} 🪙 Coins earned: ${reason}! Total: ${farmer.agriCoins + amount}`);
+  const rewardCoins = (_amount?: number, _reason?: string) => {
+    // Points system removed as requested
   };
 
   const handleToggleTask = (index: number) => {
     const updated = [...checklist];
     updated[index] = !updated[index];
     setChecklist(updated);
-
-    if (updated[index]) {
-      rewardCoins(25, 'Completed daily farm inspection task');
-    }
   };
 
   const handleUpdateProfile = (updated: Partial<FarmerProfile>) => {
@@ -320,13 +312,13 @@ export default function App() {
 
             {/* Quick Action Box */}
             <div className="mt-auto bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-3.5 space-y-2 text-xs">
-              <span className="font-bold text-emerald-900 block">{t.agriCoins}</span>
+              <span className="font-bold text-emerald-900 block">AgriSathi</span>
               <p className="text-[11px] text-emerald-700 leading-relaxed">
                 {farmer.language === 'te'
-                  ? `మీ వద్ద ${farmer.agriCoins} కాయిన్స్ ఉన్నాయి. రోజువారీ పనులు పూర్తి చేసి లేదా వ్యవసాయ వీడియోలు చూసి మరిన్ని కాయిన్స్ సంపాదించండి.`
+                  ? 'మీ పొలం కోసం ఆధునిక వ్యవసాయ సలహా మరియు సేవలు.'
                   : farmer.language === 'hi'
-                  ? `आपके पास ${farmer.agriCoins} सिक्के हैं। दैनिक कार्य पूरे करें या अधिक सिक्के कमाने के लिए वीडियो देखें।`
-                  : `You have ${farmer.agriCoins} coins. Complete daily checklists or watch advisory videos to earn more.`}
+                  ? 'आपके खेत के लिए आधुनिक कृषि परामर्श और सेवाएँ।'
+                  : 'Modern agricultural intelligence and services for your farm.'}
               </p>
               <button
                 onClick={() => setViewMode('mobile')}
@@ -397,6 +389,10 @@ export default function App() {
         </div>
       )}
 
+      {/* Footer */}
+      <footer className="border-t border-slate-200 bg-white py-4 px-6 text-center text-xs text-slate-500 font-medium">
+        <p>AgriSathi</p>
+      </footer>
 
       {/* Modals */}
       <CropDoctorModal

@@ -208,22 +208,6 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
               </span>
             </button>
 
-            {/* Claim +50 Coins */}
-            <button
-              onClick={handleClaim}
-              className="flex flex-col items-center group cursor-pointer"
-            >
-              <div
-                className={`w-11 h-11 rounded-full flex items-center justify-center backdrop-blur-md transition-transform group-hover:scale-110 ${
-                  hasClaimed ? 'bg-emerald-600 text-white' : 'bg-amber-400 text-amber-950 font-black'
-                }`}
-              >
-                <Award className="w-5 h-5" />
-              </div>
-              <span className="text-[10px] font-bold mt-1 text-amber-300 drop-shadow">
-                {hasClaimed ? '✓' : '+50 🪙'}
-              </span>
-            </button>
 
             {/* Takeaways sheet */}
             <button
