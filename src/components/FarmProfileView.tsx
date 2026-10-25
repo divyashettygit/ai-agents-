@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FarmerProfile, Language } from '../types';
-import { User, Award, FileText, CheckCircle2, ShieldCheck, Download } from 'lucide-react';
+import { User, Award, FileText, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 interface FarmProfileViewProps {
   farmer: FarmerProfile;
@@ -14,7 +14,6 @@ const PROFILE_I18N = {
     badge: 'Farmer Profile & Settings',
     title: 'My Farm Profile',
     sub: 'Manage your personal farm parameters and settings',
-    downloadReport: 'Download Academic Session Report',
     specsTitle: 'Farmer & Plot Specifications',
     coins: 'AgriCoins',
     fullName: 'Farmer Full Name',
@@ -31,7 +30,6 @@ const PROFILE_I18N = {
     badge: 'రైతు ప్రొఫైల్ & సెట్టింగ్‌లు',
     title: 'నా వ్యవసాయ ప్రొఫైల్',
     sub: 'మీ వ్యవసాయ వివరాలను మరియు సెట్టింగ్‌లను నిర్వహించండి',
-    downloadReport: 'అకడమిక్ రిపోర్ట్ డౌన్‌లోడ్',
     specsTitle: 'రైతు మరియు పొలం వివరాలు',
     coins: 'అగ్రి కాయిన్స్',
     fullName: 'రైతు పూర్తి పేరు',
@@ -48,7 +46,6 @@ const PROFILE_I18N = {
     badge: 'किसान प्रोफाइल और सेटिंग्स',
     title: 'मेरी कृषि प्रोफाइल',
     sub: 'अपने कृषि मापदंडों और सेटिंग्स का प्रबंधन करें',
-    downloadReport: 'अकादमिक रिपोर्ट डाउनलोड करें',
     specsTitle: 'किसान और खेत विनिर्देश',
     coins: 'एग्री-कॉइन',
     fullName: 'किसान का पूरा नाम',
@@ -65,7 +62,6 @@ const PROFILE_I18N = {
     badge: 'ರೈತ ವಿವರ ಮತ್ತು ಸೆಟ್ಟಿಂಗ್‌ಗಳು',
     title: 'ನನ್ನ ಕೃಷಿ ಪ್ರೊಫೈಲ್',
     sub: 'ನಿಮ್ಮ ಕೃಷಿ ವಿವರಗಳನ್ನು ಮತ್ತು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ',
-    downloadReport: 'ಅಕಾಡೆಮಿಕ್ ವರದಿ ಡೌನ್‌ಲೋಡ್',
     specsTitle: 'ರೈತ ಮತ್ತು ಜಮೀನಿನ ವಿವರಗಳು',
     coins: 'ಅಗ್ರಿ ಕಾಯಿನ್ಸ್',
     fullName: 'ರೈತನ ಪೂರ್ಣ ಹೆಸರು',
@@ -109,48 +105,6 @@ export const FarmProfileView: React.FC<FarmProfileViewProps> = ({
     onRewardCoins(25, 'Updated farm profile details');
   };
 
-  const handleDownloadReport = () => {
-    const text = `AGRISATHI - COMPREHENSIVE DEMO & PROJECT REPORT
-Project Title: AgriSathi - AI Multi-Agent Farming Assistant
-Project Domain: Artificial Intelligence & Agriculture (Autonomous Multi-Agent System)
-Author: 4th Year B.Tech (CSE / ECE)
-Date: ${new Date().toLocaleDateString('en-IN')}
-
-1. FARMER PROFILE & LOCAL CONTEXT
-- Farmer Name: ${farmer.name}
-- Farm Location: ${farmer.location}
-- Primary Crop: ${farmer.crop}
-- Holding Size: ${farmer.area} Acres
-- Interface Language: ${language}
-
-2. MULTI-AGENT ARCHITECTURE STATUS
-[✓] Coordinator Agent: Master intent routing and unified response synthesis
-[✓] Crop Health Agent: Leaf disease diagnosis using PlantVillage taxonomy
-[✓] Soil & Fertilizer Advisor: Stage-wise NPK calculator (Urea, DAP, MOP bags)
-[✓] Weather Planning Agent: Spraying window & precipitation risk advisories
-[✓] Mandi Insights Agent: Agmarknet APMC market rates & CSV export
-[✓] Govt Schemes Agent: Pradhan Mantri Fasal Bima Yojana (PMFBY) guidance
-
-3. SYSTEM HIGHLIGHTS
-- Multilingual Support: English, Hindi (हिन्दी), Telugu (తెలుగు), Kannada (ಕನ್ನಡ)
-- Voice Assistance: Web Speech API speech-to-text input & TTS voice audio
-- Agrochemical Verification: Anti-counterfeit CIBRC batch code scanner
-- Educational Advisory Reels: Short farmer videos on farm mechanization & insurance
-
-4. DATASET BENCHMARKS
-- PlantVillage Dataset (54,000+ plant leaf pathology images)
-- Agmarknet / Data.gov.in daily market arrival records
-- Crop & Fertilizer Recommendation Datasets`;
-
-    const blob = new Blob([text], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `AgriSathi_Academic_Project_Report_${new Date().toISOString().split('T')[0]}.txt`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
   return (
     <div className="space-y-6">
       {/* Intro */}
@@ -165,25 +119,6 @@ Date: ${new Date().toLocaleDateString('en-IN')}
           <p className="text-xs text-slate-500">
             {t.sub}
           </p>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <a
-            href="/agrisathi-project.zip"
-            download="AgriSathi_Full_Source_Code.zip"
-            className="text-xs font-bold bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-colors shadow-xs"
-            title="Download full project source code as a ZIP file"
-          >
-            <Download className="w-3.5 h-3.5 text-emerald-700" />
-            {language === 'te' ? 'ప్రాజెక్ట్ ZIP డౌన్‌లోడ్' : 'Download Project ZIP'}
-          </a>
-          <button
-            onClick={handleDownloadReport}
-            className="text-xs font-bold bg-[#1b6243] hover:bg-[#144b33] text-white px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-colors shadow-xs"
-          >
-            <Download className="w-3.5 h-3.5" />
-            {t.downloadReport}
-          </button>
         </div>
       </div>
 

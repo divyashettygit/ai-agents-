@@ -183,6 +183,7 @@ export default function App() {
             <MobileAppView
               farmer={farmer}
               language={farmer.language}
+              activePage={activePage}
               onOpenCropDoctor={() => setIsCropDoctorOpen(true)}
               onOpenFertilizer={() => setIsFertilizerOpen(true)}
               onOpenVerify={() => setIsVerifyOpen(true)}
@@ -190,6 +191,7 @@ export default function App() {
               onOpenVideo={(video) => setActiveVideo(video)}
               onNavigatePage={(page) => handleNavigate(page)}
               onRewardCoins={rewardCoins}
+              onUpdateProfile={handleUpdateProfile}
             />
           </div>
         </main>

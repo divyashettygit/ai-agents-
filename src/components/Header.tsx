@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivePage, FarmerProfile, Language } from '../types';
 import { I18N } from '../data/translations';
-import { Smartphone, Monitor, Globe, Download, HelpCircle, LogOut } from 'lucide-react';
+import { Smartphone, Monitor, Globe, LogOut } from 'lucide-react';
 
 interface HeaderProps {
   farmer: FarmerProfile;
@@ -153,29 +153,6 @@ export const Header: React.FC<HeaderProps> = ({
             <option value="kn">ಕನ್ನಡ (Kannada)</option>
           </select>
         </div>
-
-        {/* Download Project ZIP directly */}
-        <a
-          href="/agrisathi-project.zip"
-          download="AgriSathi_Full_Source_Code.zip"
-          className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 hover:bg-slate-50 transition-colors shadow-xs"
-          title="Download full project source code as a ZIP file"
-        >
-          <Download className="w-3.5 h-3.5 text-emerald-700" />
-          <span className="hidden sm:inline">{language === 'te' ? 'ప్రాజెక్ట్ ZIP' : 'Download ZIP'}</span>
-          <span className="sm:hidden text-[10px]">ZIP</span>
-        </a>
-
-        {/* Phone & Local Setup Guide (fixes 403) */}
-        <button
-          onClick={onOpenShareGuide}
-          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition-colors shadow-xs"
-          title="Phone access & 403 fix guide"
-        >
-          <HelpCircle className="w-3.5 h-3.5 text-emerald-700" />
-          <span className="hidden sm:inline">{language === 'te' ? 'ఫోన్ / PC గైడ్' : 'Phone / PC Guide'}</span>
-        </button>
-
 
         {/* Farmer Avatar */}
         <button
